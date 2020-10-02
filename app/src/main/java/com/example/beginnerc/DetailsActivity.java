@@ -10,15 +10,16 @@ import android.widget.TextView;
 import java.util.List;
 
 public class DetailsActivity extends AppCompatActivity {
-    int image;
-    String name;
-    String desc;
+    /**
+     * Do not forget to encapsulate the fields
+     */
+    private int image;
+    private String name;
+    private String desc;
 
-    ImageView imageDetail;
-    TextView namDetail;
-    TextView descriptionDetail;
-
-
+    private ImageView imageDetail;
+    private TextView namDetail;
+    private TextView descriptionDetail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,23 +30,23 @@ public class DetailsActivity extends AppCompatActivity {
         setView();
     }
 
-    private void initView(){
+    private void initView() {
         imageDetail = findViewById(R.id.image1);
         namDetail = findViewById(R.id.name_Detail);
         descriptionDetail = findViewById(R.id.description_Detail);
 
     }
-    private void getData(){
+
+    private void getData() {
         Intent intent = getIntent();
-        image= intent.getIntExtra("IMAGE",0);
+        image = intent.getIntExtra("IMAGE", 0);
         name = intent.getStringExtra("NAME");
         desc = intent.getStringExtra("DESCRIPTION");
     }
-    private void setView(){
+
+    private void setView() {
         imageDetail.setImageResource(image);
-
         namDetail.setText(name);
-
         descriptionDetail.setText(desc);
 
     }
